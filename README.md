@@ -1,6 +1,8 @@
 This repo is for researching Move and Sui.
 
-It follows loosely the guides from [Move book](https://move-book.com/index.html)
+It follows loosely the guides from 
+- [Move book](https://move-book.com/index.html)
+- [Sui docs](https://docs.sui.io/)
 
 # Setup
 
