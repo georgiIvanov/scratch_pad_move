@@ -10,13 +10,15 @@ public struct AdminCap has key { id: UID }
 /// Some `Gift` object that the admin can `mint_and_transfer`.
 public struct Gift has key { id: UID }
 
-// called when module is published; similar to constructor
+/// called when module is published; similar to constructor
+/// https://move-book.com/programmability/module-initializer.html#init-features
 fun init(ctx: &mut TxContext) {
-  
-  let admin_cap = AdminCap { id: object::new(ctx) };
-  
-  transfer(admin_cap, ctx.sender());
+  init_module(ctx);
+}
 
+fun init_module(ctx: &mut TxContext) {
+  let admin_cap = AdminCap { id: object::new(ctx) };
+  transfer(admin_cap, ctx.sender());
 }
 
 /// Transfers the `AdminCap` object to the `recipient`. Thus, the recipient
@@ -29,7 +31,11 @@ public fun transfer_admin_cap(cap: AdminCap, recipient: address) {
 public fun mint_and_transfer(
     _: &AdminCap, recipient: address, ctx: &mut TxContext
 ) {
-    let gift = Gift { id: object::new(ctx) };
-    transfer::transfer(gift, recipient);
+  let gift = Gift { id: object::new(ctx) };
+  transfer::transfer(gift, recipient);
 }
 
+#[test_only]
+public fun init_module_test(ctx: &mut TxContext) {
+  init_module(ctx);
+}
