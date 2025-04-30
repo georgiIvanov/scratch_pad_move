@@ -65,7 +65,7 @@ $ sui client publish --gas-budget 100000000
 $ sui client publish --gas-budget 100000000 /path/to/package
 ```
 
-Interacting with a package. See `Published Objects` from publishing.
+Interacting with a package. See `Published Objects` log from publishing command above.
 
 ```bash
 export PACKAGE_ID=0x39c60e2b68a7e893b30fbdeee50383d9c7f510688b40fff04fd9fe166d059aaa
@@ -78,9 +78,12 @@ sui client ptb \
 --assign list \
 --transfer-objects "[list]" sender
 
+# --assign we assign 'sender' the currently active address
 # --move-call call "new" function, it returns a value
 # --assign we assign the value to list
 # --transfer-objects we transfer list to the sender, ownership transfer
+
+# NB: These operations would usually be part of a smart contract, but in Move we can manipulate objects we own freely
 ```
 
 Now you can interact with the list object.
