@@ -109,3 +109,9 @@ sui client ptb \
 --move-call $PACKAGE_ID::todo_list::add @$LIST_ID "'Learn about Object Model'" \
 --move-call $PACKAGE_ID::todo_list::remove @$LIST_ID 0
 ```
+
+# Stuff you should know
+
+- You can find source files of the std libs in `build/[package]/sources/dependencies`
+  - functions & structs are available for reference there
+  
