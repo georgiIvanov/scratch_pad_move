@@ -28,6 +28,7 @@ public fun transfer_admin_cap(cap: AdminCap, recipient: address) {
 }
 
 /// Creates a new `Gift` object and transfers it to the `recipient`.
+/// Pattern: Capability https://move-book.com/programmability/capability.html
 public fun mint_and_transfer(
     _: &AdminCap, recipient: address, ctx: &mut TxContext
 ) {
