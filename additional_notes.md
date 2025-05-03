@@ -2,7 +2,11 @@ This file contains some additional notes around Move / Sui
 
 > Relevant stuff that didn't make it into the readme.md
 
+### Sui
 - 1 SUI equals 10^9 MISTs
+- maximum gas budget is [50 billion MIST or 50 SUI](https://docs.sui.io/concepts/tokenomics/gas-in-sui)
+
+### Move
 - [Move limits](https://move-book.com/guides/building-against-limits.html) - obj size 250KB, tx size - 128KB
 - Addresses are fixed **32 bytes** hex string and used to identify [packages](https://move-book.com/concepts/packages.html), [accounts](https://move-book.com/concepts/what-is-an-account.html), and [objects](https://move-book.com/object/index.html)
 	- some [addresses are reserved](https://move-book.com/appendix/reserved-addresses.html) for system packages / objects
@@ -35,7 +39,7 @@ Basic Move
 	- [type reflection](https://move-book.com/move-basics/type-reflection.html#type-reflection) - name, module, address of a type
 	- [testing](https://move-book.com/move-basics/testing.html) - expected_failure attribute
 
-Object Model / Storage in Sui
+### Object Model / Storage in Sui
 - An object has: Type (defining structure and behaviour), Unique ID, Owner, Data, Version (nonce), Digest - calculated when the object is created and is updated whenever the object's data changes
 - **[4 types of ownership](https://move-book.com/object/ownership.html)** - 
 	- single - one owner, exclusive control; account owned
@@ -45,7 +49,7 @@ Object Model / Storage in Sui
 - [UID and ID](https://move-book.com/storage/uid-and-id.html#uid-and-id) - ID is a pointer to an address, UID wraps ID and is a unique identifier of an object.
 
 
-Advanced Move
+### Advanced Move
 - hot potato pattern
 	- structs that don't have `drop` ability need to be unpacked or the TX will abort due to unused value without drop
 	- this allows for a struct to be passed between modules, but in the end it has to be returned back to its creator because only they can unpack it. essentially a borrowed value must be returned back.
@@ -59,7 +63,7 @@ Advanced Move
 - While a struct can be created any number of times, there are cases where a struct should be guaranteed to be created only once. For this purpose, Sui provides the [One-Time Witness](https://move-book.com/programmability/one-time-witness.html) - a special witness that can only be used once.
 
 
-General Sui links
+### General Sui links
 - Uses? [RocksDB](https://medium.com/walmartglobaltech/https-medium-com-kharekartik-rocksdb-and-embedded-databases-1a0f8e6ea74f) ? ([overview](https://github.com/facebook/rocksdb/wiki/RocksDB-Overview)) for its [storage management](https://docs.sui.io/guides/operator/data-management)
 - [Developer Cheat Sheet](https://docs.sui.io/guides/developer/dev-cheat-sheet) 
 - [Official repo](https://github.com/MystenLabs/sui)
@@ -67,11 +71,11 @@ General Sui links
 - Supports [On-Chain Randomness](https://docs.sui.io/guides/developer/advanced/randomness-onchain)
 	- Careful, there are some unique attack vectors
 
-Aptos Move
+### Aptos Move
 - [Docs](https://aptos.dev/en/build/smart-contracts)
 - Find more about aptos [specific types](https://aptos.dev/en/build/smart-contracts/move-reference?page=aptos-framework%2Fdoc%2Fobject.md) - aptos-framework and std-lib
 
-Initia
+### Initia
  - [initia_stdlib](https://github.com/initia-labs/movevm/tree/bf81d0d40e1514d308b3f5063ad37efa18bfac4d/precompile/modules/initia_stdlib) / doc - repo
  - uses Move 2020
  - Forked from Aptos

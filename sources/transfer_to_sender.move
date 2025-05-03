@@ -12,6 +12,7 @@ public struct Gift has key { id: UID }
 
 /// called when module is published; similar to constructor
 /// https://move-book.com/programmability/module-initializer.html#init-features
+/// 'init' functions can have at most two parameters - OTW (struct with drop) and TxContext
 fun init(ctx: &mut TxContext) {
   init_module(ctx);
 }
