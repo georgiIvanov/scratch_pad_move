@@ -4,6 +4,10 @@ It follows loosely the guides from
 - [Move book](https://move-book.com/index.html)
 - [Sui docs](https://docs.sui.io/)
 
+Learning resources
+- [Sui Move Course](https://github.com/sui-foundation/sui-move-intro-course)
+- [Let's Move Sui](https://letsmovesui.com/)
+
 # Setup
 
 To build the project run
