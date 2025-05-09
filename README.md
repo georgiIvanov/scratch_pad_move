@@ -8,6 +8,9 @@ Learning resources
 - [Sui Move Course](https://github.com/sui-foundation/sui-move-intro-course)
 - [Let's Move Sui](https://letsmovesui.com/)
 
+Other
+- [Sui network info](https://sui.io/networkinfo) - rpc, faucet, testnet
+
 # Setup
 
 To build the project run
@@ -31,7 +34,7 @@ sui move test test_hello
 
 # Local network environment
 
-Deploy and test on a local network. Full instructions [here](https://move-book.com/your-first-move/hello-sui.html#set-up-an-account).
+Deploy and test on a local network. Full instructions [here](https://move-book.com/your-first-move/hello-sui.html#set-up-an-account). Alternative [docs](https://docs.sui.io/guides/developer/getting-started/local-network).
 
 ```bash
 RUST_LOG="off,sui_node=info" sui start --with-faucet --force-regenesis
